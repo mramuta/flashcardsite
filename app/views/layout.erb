@@ -17,7 +17,7 @@
           <li class="pipe-separate t-light-green left"><a href="/">home</a></li>
 
           <% if current_user %>
-              <li class="pipe-separate t-light-green left"><a href="/users/<%=session[:user_id]%>/entries" ><%= User.find(session[:user_id]).full_name %></a></li>
+              <li class="pipe-separate t-light-green left"><a href="/users/<%=session[:user_id]%>/entries" ><%= User.find(session[:user_id]).username %></a></li>
               <li class="pipe-separate t-light-green left">
 
               <form method="post" action="/session">

@@ -1,5 +1,14 @@
 <h1>Enter you information below</h1>
 
+<% if @error %>
+  <h3> ERRORS: </h3>
+  <% @error.each do |error| %>
+    <%= error %>
+    <br>
+  <%end %>
+<br>
+<% end %>
+
 <form method="post" action="/users">
   <label> Username:</label>
   <input name="user[username]" type="text">
