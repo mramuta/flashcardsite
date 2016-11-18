@@ -1,8 +1,11 @@
-#need to rename variables
-<h1><%= @stack.name %></h1>
+<h1>Results</h1>
 
-<p>you've completed a round of <%= @stack.name %>.
-  you answered <% place holder %> of <% nother place holder%> cards correctly
-  on the first try. you submitted <% last place holder%> total guesses
-  before each card was answeed correctly.
+<p>You've completed a round of <%= @round.deck.name %>.
+  <br>
+  Total cards:<%= @cards.length %>
+  <br>
+  Total guesses:<%= @guesses.length %>
+
+
+
 </p>

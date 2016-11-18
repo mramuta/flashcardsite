@@ -1,5 +1,8 @@
 <h3 class="text-c">Choose a Deck!</h3>
 
 <% @decks.each do |deck| %>
-  <a href="decks/<%= deck.id %>" class="block button w-100 mar-t-2 mar-b-3 pad-2 round-1 text-c center"><%= deck.name %></a>
+  <form method="post" action="/rounds">
+  <input type="hidden" name="deck_id" value=<%=deck.id%>>
+  <input type="submit" value=<%=deck.name%> class="block button w-100 mar-t-2 mar-b-3 pad-2 round-1 text-c center">
+</form>
 <% end %>
