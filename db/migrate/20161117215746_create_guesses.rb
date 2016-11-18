@@ -6,4 +6,5 @@ class CreateGuesses < ActiveRecord::Migration
     t.integer :card_id, null: false
     t.timestamps(null: false)
   end
+  end
 end
