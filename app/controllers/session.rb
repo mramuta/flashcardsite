@@ -9,10 +9,10 @@ post '/sessions' do
   end
   if user
     session['user'] = user.id
-    redirect '/'
+    redirect "/users/#{user.id}"
   end
   @error = "Invalid email/password combination."
-  redirect '/'
+  erb :'sessions/new'
 end
 	
 delete '/sessions/new' do
