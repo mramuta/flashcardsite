@@ -10,7 +10,7 @@
 
 /* element styling */
 html {
-  height: 100%;
+  min-height: 100%;
   background-color: #32bb7d;
   background: url(http://cdn.pcwallart.com/images/pixel-art-pokemon-wallpaper-2.jpg);
   background-attachment: fixed;
