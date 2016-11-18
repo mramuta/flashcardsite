@@ -1,1 +1,5 @@
-DECKS VIEW
+<h3 class="text-c">Choose a Deck!</h3>
+
+<% @decks.each do |deck| %>
+  <a href="decks/<%= deck.id %>" class="block button w-100 mar-t-2 mar-b-3 pad-2 round-1 text-c center"><%= deck.name %></a>
+<% end %>
