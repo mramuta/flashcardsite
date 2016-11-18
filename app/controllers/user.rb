@@ -10,5 +10,21 @@ post '/users'
 	end
 	user.save
 	redirect '/sessions/new'
+end
 
+get '/users/:id/show' do 
+	# This is so you can view a users profile
+	# show their stats, info, etc
+end
+
+get '/users/:id/edit' do 
+	# The page to get to editing your profile
+	# Have :erb for updating fields on the page and then updating with the put below
+end
+
+put '/users/:id' do 
+	# This will allow users to update their profile
+		# -name, email? 
+		# - reset their score!
+		# need to use post in the form field, use the hidden input type with the method put
 end
