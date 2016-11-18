@@ -1,0 +1,13 @@
+<h3 class="text-c"><%=@deck.name%></h3>
+
+
+
+<!-- wrong -->
+<% @deck.cards.each do |card| %>
+  <p><%=card.question%></p>
+  <form method="post" action="/guess">
+  <label for="title-input" class="block mar-b-1">Answer:</label>
+  <input id="title-input" name="email" type="text" value="<%= @entry.try(:title) %>" tabindex="1" class="block w-100 no-outline no-border pad-1 mar-b-2">
+  <input type="submit" value="Submit" tabindex="3" class="block button w-100 mar-t-4 mar-b-3 pad-2 round-1 text-c center no-border no-outline">
+</form>
+<% end %>
