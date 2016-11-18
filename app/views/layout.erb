@@ -1,23 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 
-    normalize.css removes cross-browser differences in defaults, e.g.,
-    differences in how form elements appear between Firefox and IE
-    See: http://necolas.github.com/normalize.css/
-  -->
   <link rel="stylesheet" href="/css/normalize.css">
-  <!--
-    application.css is where you put your styles
-  -->
   <link rel="stylesheet" href="/css/application.css">
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
 
-  <title></title>
+  <title>The World of Flashcards</title>
 </head>
 <body>
-  <%= yield %>
+  <header role="banner" class="mar-t-5 pad-t-2 pad-b-4 pad-s-1 wrap-float bg-white">
+    <div class="max-w-700 center wrap-float">
+      <nav class="clearfix mar-b-1">
+        <ul class="no-bullets no-margin no-padding right">
+          <li class="pipe-separate t-light-green left"><a href="/">home</a></li>
+
+          <% if current_user %>
+              <li class="pipe-separate t-light-green left"><a href="/users/<%=session[:user_id]%>/entries" ><%= User.find(session[:user_id]).full_name %></a></li>
+              <li class="pipe-separate t-light-green left">
+
+              <form method="post" action="/session">
+                <input type="hidden" name="_method" value="delete">
+                <input type="submit" value="Logout!">
+              </form>
+              </li> <!-- this should go to delete /session -->
+            <% else %>
+              <li class="pipe-separate t-light-green left"><a href="/users/new">register</a></li>
+              <li class="pipe-separate t-light-green left"><a href="/session/new">login</a></li>
+          <% end %>
+
+        </ul>
+      </nav>
+
+      <div class="logo-container">
+        <img class="logo" src="https://s-media-cache-ak0.pinimg.com/originals/e8/b7/49/e8b749ef64c58a40c65ae330df605e68.png" class="center block">
+        <h2>The World of Flashcards</h2>
+      </div>
+    </div>
+  </header>
+
+  <div class="bg-dk-green pad-t-2 pad-s-1 pad-b-8 mar-b-16 c-white">
+    <div class="max-w-700 center">
+      <%= yield %>
+    </div>
+  </div>
 </body>
 </html>
