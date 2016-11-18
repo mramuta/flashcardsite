@@ -3,8 +3,8 @@
 <h2><%= @flash_card.question%></h2>
 
 
-<form>
+<form method="post" action="/decks/:id/cards/:id">
   Answer: <br>
   <input  type="text" name="answer">
-  <input type="submit" value="submit" method="post" action="/decks/:id/cards/:d">
+  <input type="submit" value="submit">
 </form>
