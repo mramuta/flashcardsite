@@ -8,7 +8,7 @@ post '/sessions' do
     user = User.authenticate(params[:email],params[:pass])
   end
   if user
-    session['user'] = user.id
+    session[:user_id] = user.id
     redirect "/users/#{user.id}"
   end
   @error = "Invalid email/password combination."
@@ -16,6 +16,6 @@ post '/sessions' do
 end
 	
 delete '/sessions/new' do
-	sessions[:user] = nil
+	sessions[:user_id] = nil
 	redirect '/'
 end
