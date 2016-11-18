@@ -2,7 +2,7 @@ get '/users/new' do
 	erb :"/users/new"
 end
 
-post '/users'
+post '/users' do
 	user = User.new[params[:user]]
 	if user.invalid?
 		@error = user.errors.full_message
