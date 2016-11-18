@@ -4,7 +4,7 @@ get '/decks' do
 end
 
 get '/decks/:id' do
-  @deck = Deck.find(params[:id])
+  @deck = Deck.find(params[:id]) # grab specific deck.
   # ???
 end
 
