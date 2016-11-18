@@ -1,3 +1,3 @@
 get '/' do
-  erb :'/decks/index'
+  redirect '/decks'
 end
