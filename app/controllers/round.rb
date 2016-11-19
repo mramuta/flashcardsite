@@ -13,7 +13,7 @@ post '/rounds' do
   if user
     round = Round.create(user_id: user.id, deck_id: deck_id)
   else
-    round = Round.create(user_id: 999, deck_id: deck_id)
+    round = Round.create(user_id: -1, deck_id: deck_id)
   end
   session[:round_id] = round.id
   redirect "/decks/#{deck_id}"
