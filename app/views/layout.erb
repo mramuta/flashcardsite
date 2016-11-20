@@ -16,11 +16,11 @@
         <ul class="no-bullets no-margin no-padding right">
           <li class="pipe-separate t-light-green left"><a href="/">home</a></li>
 
-          <% if current_user %>
+          <% if session[:user_id] %>
               <li class="pipe-separate t-light-green left"><a href="/users/<%=session[:user_id]%>/entries" ><%= User.find(session[:user_id]).username %></a></li>
               <li class="pipe-separate t-light-green left">
 
-              <form method="post" action="/session">
+              <form method="post" action="/sessions">
                 <input type="hidden" name="_method" value="delete">
                 <input type="submit" value="Logout!">
               </form>
