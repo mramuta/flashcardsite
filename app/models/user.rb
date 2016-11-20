@@ -9,8 +9,8 @@ class User < ActiveRecord::Base
   validates :password, { presence: true, length: { in: 6..12 } }
 
 
-  def self.authenticate(email, password)
-    user = self.find_by(email:email)
+  def self.authenticate(username, password)
+    user = self.find_by(username: username)
     return user if user && BCrypt::Password.new(user.password) == password
   end
 

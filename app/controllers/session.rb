@@ -3,19 +3,19 @@ get '/sessions/new' do
 end
 
 post '/sessions' do
-  if params[:email] && params[:pass]
-    params[:email]
-    user = User.authenticate(params[:email],params[:pass])
+  if params[:username] && params[:pass]
+    params[:username]
+    user = User.authenticate(params[:username],params[:pass])
   end
   if user
     session[:user_id] = user.id
-    redirect "/users/#{user.id}"
+    redirect "/decks"
   end
-  @error = "Invalid email/password combination."
+  @error = "Invalid username/password combination."
   erb :'sessions/new'
 end
 	
-delete '/sessions/new' do
-	sessions[:user_id] = nil
+delete '/sessions' do
+	session[:user_id] = nil
 	redirect '/'
 end
