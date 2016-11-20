@@ -13,7 +13,8 @@ post '/users' do
 end
 
 get '/users/:id/show' do
-	# This is so you can view a users profile
+	@user = User.find(params[:id])
+	erb :"/users/show"
 end
 
 get '/users/:id/edit' do
