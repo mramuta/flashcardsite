@@ -1,4 +1,24 @@
 <h1> <%= @user.username %> </h1>
 <div>
 	<span><h3>Stats:</h3></span>
-</div>	
+  <% %>
+  <% @deck_ids.each do |deck_id| %>
+  <% deck = Deck.find(deck_id) %>
+    <h2><%=deck.name %></h2>
+    <table >
+    <tr>
+      <th>Date</th>
+      <th>Cards in Deck</th>
+      <th>First Guess Correct</th>
+      <th>Total Guesses</th>
+    </tr>
+    <tr>
+    <%@user.rounds.where(deck_id:deck.id).each do |round| %>
+      <td><%=round.created_at.to_date %></td>
+      <td><%=deck.cards.count %></td>
+      <td><%=round.first_guess_correct %></td>
+      <td><%=round.guesses.count %></td>
+    </tr>
+    <%end %>
+    <%end %>
+</div>
