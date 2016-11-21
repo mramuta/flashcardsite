@@ -12,8 +12,10 @@ post '/users' do
 	redirect '/sessions/new'
 end
 
-get '/users/:id/show' do
+get '/users/:id' do
 	@user = User.find(params[:id])
+	@decks = @user.decks
+	@deck_ids = @decks.map{|deck|deck.id}.uniq
 	erb :"/users/show"
 end
 

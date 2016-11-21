@@ -35,6 +35,15 @@ input[type=text], input[type=password], textarea {
   color: #05724f;
 }
 
+table{
+  background-color: white;
+  color:black;
+  border: 3px solid black;
+  text-align: center;
+  width: 800px;
+}
+tr:nth-child(even) {background-color: gray}
+
 
 /* positioning */
 .block {
